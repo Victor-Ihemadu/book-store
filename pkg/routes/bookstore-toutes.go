@@ -1,1 +1,15 @@
 package routes
+
+import (
+	"fmt"
+	"github.com/gorilla/mux"
+	"github.com/Victor-Iheamdu/book-management/pkg/controllers"
+)
+
+var RegisterBookSroeROutes = func(router *mux.Router) {
+	router.HandleFunc("/book/", controllers.CreateBook).Methods("POST")
+	router.HandleFunc("/book/", controllers.GetBook).Methods("GET")
+	router.HandleFunc("/book/{bookId}", controllers.GetBookById).Methods("GET")
+	router.HandleFunc("/book/{bookId}", controllers.UpdateBook).Methods("PUT")
+	router.HandleFunc("/book/{bookId}", controllers.DeleteBook).Methods("DELETE")
+}
